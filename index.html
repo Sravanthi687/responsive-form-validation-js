@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers at ApexTech | Interactive Application Form</title>
+  <meta name="description" content="Apply for open positions at ApexTech. Submit your application, portfolio, and message through our secure, interactive job application portal.">
+  <meta name="keywords" content="ApexTech, Job Application, Career Form, Submit Resume, Tech Careers">
+  <meta name="author" content="ApexTech Recruiting Team">
+  
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Decorative background meshes -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="grid-overlay"></div>
+
+  <header class="app-header">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--color-primary)" />
+        <path d="M2 17L12 22L22 17" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M2 12L12 17L22 12" stroke="var(--color-primary)" stroke-dasharray="2 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span>Apex<span>Tech</span></span>
+    </div>
+    <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+      <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="form-wrapper">
+      <div class="form-header">
+        <span class="badge">Careers</span>
+        <h1>Join the Future</h1>
+        <p>Complete the application below to take the next step in your career journey with ApexTech.</p>
+      </div>
+
+      <!-- Application Form -->
+      <form id="jobApplicationForm" novalidate>
+        <!-- Name Field -->
+        <div class="form-group" id="nameGroup">
+          <div class="input-wrapper">
+            <input type="text" id="fullName" class="form-input" placeholder=" " required autocomplete="name">
+            <label for="fullName" class="form-label">Full Name</label>
+            <span class="validation-icon"></span>
+          </div>
+          <p class="error-msg" id="nameError">Full name is required (at least 2 letters).</p>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group" id="emailGroup">
+          <div class="input-wrapper">
+            <input type="email" id="email" class="form-input" placeholder=" " required autocomplete="email">
+            <label for="email" class="form-label">Email Address</label>
+            <span class="validation-icon"></span>
+          </div>
+          <p class="error-msg" id="emailError">Please enter a valid email address (e.g., name@example.com).</p>
+        </div>
+
+        <!-- Phone Field -->
+        <div class="form-group" id="phoneGroup">
+          <div class="input-wrapper">
+            <input type="tel" id="phone" class="form-input" placeholder=" " required autocomplete="tel">
+            <label for="phone" class="form-label">Phone Number</label>
+            <span class="validation-icon"></span>
+          </div>
+          <p class="error-msg" id="phoneError">Please enter a valid 10-digit phone number.</p>
+        </div>
+
+        <!-- Message/Cover Letter Field -->
+        <div class="form-group" id="messageGroup">
+          <div class="input-wrapper">
+            <textarea id="message" class="form-input form-textarea" placeholder=" " required maxlength="1000"></textarea>
+            <label for="message" class="form-label">Cover Letter / Message</label>
+            <span class="validation-icon"></span>
+          </div>
+          <div class="textarea-footer">
+            <p class="error-msg" id="messageError">Please share a message (minimum 20 characters).</p>
+            <span class="char-counter" id="charCounter"><span id="charCount">0</span> / 1000</span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Submit Application</span>
+          <span class="btn-spinner"></span>
+        </button>
+      </form>
+
+      <!-- Success Card (Hidden by default) -->
+      <div class="success-card" id="successCard">
+        <div class="success-checkmark">
+          <div class="check-icon">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+            <div class="icon-fix"></div>
+          </div>
+        </div>
+        <h2>Application Received!</h2>
+        <p>Thank you for applying, <strong id="successUserName">Candidate</strong>! We have sent a confirmation email to <span id="successUserEmail">your email</span>. Our team will review your application and get back to you shortly.</p>
+        <button class="reset-btn" id="resetBtn">Apply for another role</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 ApexTech Inc. All rights reserved. • Privacy Policy • Equal Opportunity Employer</p>
+  </footer>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- JS Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
